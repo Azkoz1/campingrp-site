@@ -1,3 +1,6 @@
+
+// TUTO POUR AJOUTER DES DONATEURS (SITE WEB)
+
 // Mur des donateurs
 // Pour ajouter quelqu'un : copie une ligne, change le pseudo et le nom de fichier image,
 // et mets la photo correspondante dans assets/donors/.

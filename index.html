@@ -544,8 +544,18 @@
     font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
     padding-bottom: 40px;
   }
-  #lore .lore-toc a { color: var(--ink-faint); }
-  #lore .lore-toc a:hover { color: var(--accent-warm); }
+  #lore .lore-toc a { color: var(--pine); opacity: 0.75; }
+  #lore .lore-toc a:hover { color: var(--ember); opacity: 1; }
+  #lore .lore-intro-head { text-align: center; margin-bottom: 0; }
+  #lore .lore-intro-head .lore-badge {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: var(--pine-deep); border: 1px solid var(--pine);
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; color: var(--canvas);
+  }
+  #lore .lore-intro-head .lore-badge svg { width: 26px; height: 26px; }
+  #lore .lore-intro-head h2 { color: var(--pine-deep); font-size: clamp(1.6rem, 3.4vw, 2.1rem); margin: 0 0 8px; }
+  #lore .lore-intro-head p { color: var(--pine); max-width: 560px; margin: 0 auto; font-size: 0.98rem; }
   #lore .lore-sec { position: relative; padding: 5.5rem 1.5rem 6rem; overflow: hidden; }
   #lore .lore-wrap { max-width: 640px; margin: 0 auto; position: relative; z-index: 2; }
   #lore .lore-treeline { height: 46px; display: flex; align-items: flex-end; justify-content: center; gap: 2px; opacity: 0.5; }
@@ -582,10 +592,10 @@
 <div class="lore-canvas">
 
   <div class="lore-intro" style="background: var(--canvas);">
-    <div class="section-head" style="margin-bottom:0;">
-      <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3c-4 3-6 6-6 10a6 6 0 0 0 12 0c0-4-2-7-6-10Z"/><path d="M9.5 15.5a2.5 2.5 0 0 0 5 0"/></svg></div>
-      <h2 style="font-family:Georgia,serif;">Le lore du Camping des Pins</h2>
-      <p style="font-family:Georgia,serif;">La brochure officielle du camping — et ce qu'elle ne dit pas tout à fait.</p>
+    <div class="lore-intro-head">
+      <div class="lore-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4 3-6 6-6 10a6 6 0 0 0 12 0c0-4-2-7-6-10Z"/><path d="M9.5 15.5a2.5 2.5 0 0 0 5 0"/></svg></div>
+      <h2>Le lore du Camping des Pins</h2>
+      <p>La brochure officielle du camping — et ce qu'elle ne dit pas tout à fait.</p>
     </div>
     <nav class="lore-toc" aria-label="Sommaire du lore">
       <a href="#lore-accueil">Accueil</a>
