@@ -919,9 +919,17 @@
   #lore .lore-canvas *::before,
   #lore .lore-canvas *::after { box-sizing: border-box; }
   #lore .lore-canvas {
-    --canvas:#e9ddc0; --canvas-2:#ded0ac; --pine:#2f4a3d; --pine-deep:#1c2f27;
-    --ember:#c1622d; --dusk:#1b2430; --dusk-2:#0f151d; --fog:#8a97a0;
-    --wound:#9a2b1f; --paper-line: rgba(47,74,61,0.18); --ink-l:#242017;
+    --canvas: var(--bg);
+    --canvas-2: var(--bg-alt);
+    --pine: var(--accent);
+    --pine-deep: var(--ink);
+    --ember: var(--accent-warm);
+    --dusk: var(--bg-alt);
+    --dusk-2: var(--panel);
+    --fog: var(--ink-faint);
+    --wound: var(--accent-warm-2);
+    --paper-line: var(--line);
+    --ink-l: var(--ink);
     font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
     line-height: 1.65;
   }
@@ -1037,7 +1045,7 @@
 
   <div class="lore-treeline" style="color: var(--pine); background: var(--canvas-2);"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
-  <section id="lore-jour1" class="lore-sec" style="background:#d4c69f; color: var(--ink-l);">
+  <section id="lore-jour1" class="lore-sec" style="background: var(--canvas); color: var(--ink-l);">
     <div class="lore-wrap">
       <h2 class="lore-h">L'arrivée</h2>
       <p>Les premières tentes se montent avant midi. Les enfants courent déjà vers la crique pendant que leurs parents négocient l'emplacement le plus à l'ombre des pins. À la buvette, on ressert le café à ceux qui ont roulé toute la nuit pour passer le pont à temps.</p>
@@ -1049,9 +1057,9 @@
     </div>
   </section>
 
-  <div class="lore-treeline" style="color: var(--pine); background:#d4c69f;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="lore-treeline" style="color: var(--pine); background: var(--canvas);"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
-  <section id="lore-jour6" class="lore-sec" style="background:#c9baa1; color: var(--ink-l);">
+  <section id="lore-jour6" class="lore-sec" style="background: var(--canvas-2); color: var(--ink-l);">
     <div class="lore-wrap">
       <h2 class="lore-h">Une absence</h2>
       <p>Au petit matin, la famille du chalet 12 signale l'absence d'un des leurs. Le jeune homme était parti seul en début de soirée pour « marcher un peu du côté de la crique » et n'a pas reparu.</p>
@@ -1063,9 +1071,9 @@
     </div>
   </section>
 
-  <div class="lore-treeline" style="color: var(--pine-deep); background:#c9baa1;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="lore-treeline" style="color: var(--pine-deep); background: var(--canvas-2);"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
-  <section id="lore-jour9" class="lore-sec" style="background:#8b8266; color:#241f14;">
+  <section id="lore-jour9" class="lore-sec" style="background: var(--canvas); color: var(--ink-l);">
     <div class="lore-wrap">
       <h2 class="lore-h">Ce qu'on a retrouvé</h2>
       <p>Ce que la direction espérait ne jamais avoir à communiquer a fini par filtrer. Voici, tel que transmis à l'équipe de sécurité, l'essentiel du rapport interne rédigé après la découverte à la pointe nord de l'île.</p>
@@ -1081,15 +1089,15 @@
         <p>L'aide-soignant appelé sur place a refusé de signer le constat initial, déclarant « n'avoir jamais rien vu de tel ». Sur ordre de la direction, les vacanciers n'en ont jamais rien su, histoire de « ne pas alimenter la panique ». Le camping reste ouvert.</p>
       </div>
     </div>
-    <div class="lore-scratches" style="color:#241f14;"></div>
+    <div class="lore-scratches" style="color: var(--ink-l);"></div>
   </section>
 
-  <div class="lore-treeline" style="color:#3a3226; background:#8b8266;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="lore-treeline" style="color: var(--pine); background: var(--canvas);"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
-  <section id="lore-rumeurs" class="lore-sec" style="background:#4a4436; color:#efe6cf;">
+  <section id="lore-rumeurs" class="lore-sec" style="background: var(--canvas-2); color: var(--ink-l);">
     <div class="lore-wrap">
-      <p class="lore-eyebrow" style="color:#efe6cf;">Autour du feu de camp</p>
-      <h2 class="lore-h" style="color:#efe6cf;">Ce qu'on raconte</h2>
+      <p class="lore-eyebrow">Autour du feu de camp</p>
+      <h2 class="lore-h">Ce qu'on raconte</h2>
       <p>Rien n'est officiel. Mais entre deux bûches, les langues se délient.</p>
       <div class="lore-fragments">
         <div class="lore-fragment">
@@ -1123,11 +1131,11 @@
     </div>
   </section>
 
-  <div class="lore-treeline" style="color:#231f18; background:#4a4436;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="lore-treeline" style="color: var(--pine-deep); background: var(--canvas-2);"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 
-  <section id="lore-sentier" class="lore-sec" style="background: var(--dusk); color:#dbe0e4;">
+  <section id="lore-sentier" class="lore-sec" style="background: var(--canvas); color: var(--ink-l);">
     <div class="lore-wrap">
-      <h2 class="lore-h" style="color:#dbe0e4;">Le sentier interdit</h2>
+      <h2 class="lore-h">Le sentier interdit</h2>
       <p>Un petit groupe de randonneurs, mené par un campeur du nom de Manu, s'écarte un instant du sentier balisé pour couper au plus court à travers les pins vers la crique. Ils tombent sur une formation rocheuse qu'aucune carte du camping ne mentionne : un renfoncement dans la roche, à moitié dissimulé par la végétation, comme repoussé de l'intérieur plutôt qu'effondré naturellement.</p>
       <p>De longues entailles marquent la pierre à l'entrée — trop régulières pour l'érosion, trop profondes pour un outil. Avant que quiconque n'ait pu s'aventurer plus loin, l'équipe de sécurité boucle le secteur dans l'heure. Raison officielle : « risque d'éboulement ». Un grillage et un cadenas condamnent désormais l'accès. Un garde y est posté en permanence depuis.</p>
       <div class="lore-quote">
@@ -1137,10 +1145,10 @@
     </div>
   </section>
 
-  <section id="lore-mot" class="lore-sec" style="background: var(--dusk-2); color:#c7ccd1;">
+  <section id="lore-mot" class="lore-sec" style="background: var(--canvas-2); color: var(--ink-l);">
     <div class="lore-wrap">
-      <p class="lore-eyebrow" style="color:#c7ccd1;">Mot du directeur</p>
-      <h2 class="lore-h" style="color:#c7ccd1;">Le séjour continue</h2>
+      <p class="lore-eyebrow">Mot du directeur</p>
+      <h2 class="lore-h">Le séjour continue</h2>
       <p>Le Camping des Pins reste ouvert. Les activités se poursuivent comme prévu : baignades à la crique, pêche, soirées à la buvette. Ce n'est pas quelques rumeurs de coin de feu qui vont remettre en cause ce que nous avons mis des mois à rouvrir.</p>
       <p>Nous avons simplement renforcé les rondes de nuit et avancé le couvre-feu recommandé à 23h aux abords des pins. Ce ne sont là que des précautions ordinaires, pour une île qui reste, avant tout, sauvage.</p>
       <p>Si, une nuit, vous entendez quelque chose bouger entre les arbres — un souffle, un pas trop lourd, un hurlement qui ne ressemble à rien de connu — la meilleure chose à faire est probablement de rentrer sous la tente et de ne pas vérifier.</p>
