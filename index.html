@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Camping RP — Île des Pins</title>
+<meta name="description" content="Site officiel de Camping RP, serveur FiveM whitelist +18 : présentation, équipe et règlement du Camping des Pins." />
+<style>
+  :root {
+    --bg: #f5efe2;
+    --bg-alt: #ece2cd;
+    --panel: #fffdf8;
+    --panel-border: #ddd0b0;
+    --ink: #2c2417;
+    --ink-soft: #5c5138;
+    --ink-faint: #8a7c5c;
+    --accent: #2f5d3a;
+    --accent-2: #7a9a5f;
+    --accent-warm: #b5652f;
+    --accent-warm-2: #d98b4f;
+    --line: #d7c9a3;
+    --shadow: 0 10px 30px rgba(44, 36, 23, 0.10);
+    --radius: 16px;
+    --max: 980px;
+  }
+
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --bg: #14170f;
+      --bg-alt: #191c13;
+      --panel: #1d2117;
+      --panel-border: #33391f;
+      --ink: #eee7d2;
+      --ink-soft: #c3b992;
+      --ink-faint: #8a8562;
+      --accent: #8fbb7a;
+      --accent-2: #6f9a58;
+      --accent-warm: #e0954e;
+      --accent-warm-2: #c97a35;
+      --line: #33391f;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #14170f;
+    --bg-alt: #191c13;
+    --panel: #1d2117;
+    --panel-border: #33391f;
+    --ink: #eee7d2;
+    --ink-soft: #c3b992;
+    --ink-faint: #8a8562;
+    --accent: #8fbb7a;
+    --accent-2: #6f9a58;
+    --accent-warm: #e0954e;
+    --accent-warm-2: #c97a35;
+    --line: #33391f;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Georgia', 'Iowan Old Style', 'Palatino Linotype', serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .icon { width: 1em; height: 1em; display: inline-block; vertical-align: -0.15em; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- Nav ---------- */
+  header.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(10px);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  .brand .icon { width: 1.5em; height: 1.5em; color: var(--accent); }
+  nav.links {
+    display: flex;
+    gap: 22px;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    flex-wrap: wrap;
+  }
+  nav.links a { color: var(--ink-soft); }
+  nav.links a:hover { color: var(--accent); text-decoration: none; }
+  .discord-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fffdf8 !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .discord-btn:hover { background: var(--accent-2); text-decoration: none; }
+  .discord-btn .icon { width: 1.1em; height: 1.1em; stroke: none; fill: currentColor; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 72px 24px 48px;
+    text-align: center;
+  }
+  .hero .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-family: -apple-system, sans-serif;
+    font-weight: 600;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    margin: 18px 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .hero .subtitle {
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    max-width: 620px;
+    margin: 0 auto 28px;
+  }
+  .hero-text {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: left;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius);
+    padding: 32px 36px;
+    box-shadow: var(--shadow);
+  }
+  .hero-text p { margin: 0 0 14px; color: var(--ink-soft); }
+  .hero-text p:last-child { margin-bottom: 0; }
+  .hero-text strong { color: var(--ink); }
+
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: -apple-system, sans-serif;
+  }
+  .btn.primary { background: var(--accent); color: #fffdf8; }
+  .btn.primary:hover { background: var(--accent-2); text-decoration: none; }
+  .btn.ghost { border: 1px solid var(--line); color: var(--ink); }
+  .btn.ghost:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+  /* ---------- Section shell ---------- */
+  section.block {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 64px 24px;
+  }
+  section.block.alt {
+    max-width: none;
+    background: var(--bg-alt);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  section.block.alt > .inner { max-width: var(--max); margin: 0 auto; }
+
+  .section-head { text-align: center; margin-bottom: 44px; }
+  .section-head .icon-badge {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--accent);
+    box-shadow: var(--shadow);
+  }
+  .section-head .icon-badge .icon { width: 26px; height: 26px; }
+  .section-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.1rem); margin: 0 0 8px; }
+  .section-head p { color: var(--ink-soft); max-width: 560px; margin: 0 auto; font-family: -apple-system, sans-serif; font-size: 0.98rem; }
+
+  /* ---------- Team ---------- */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 26px;
+  }
+  .team-card {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius);
+    padding: 30px 26px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .team-card img {
+    width: 108px; height: 108px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    margin-bottom: 18px;
+  }
+  .team-card h3 { margin: 0 0 2px; font-size: 1.15rem; }
+  .team-card .role {
+    display: inline-block;
+    color: var(--accent-warm);
+    font-family: -apple-system, sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .team-card p.bio { color: var(--ink-soft); font-size: 0.95rem; margin: 0; }
+
+  /* ---------- Sommaire ---------- */
+  .toc {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius);
+    padding: 10px;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 6px;
+  }
+  .toc a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    color: var(--ink);
+    font-family: -apple-system, sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .toc a:hover { background: var(--bg-alt); text-decoration: none; }
+  .toc a .icon { color: var(--accent); width: 1.3em; height: 1.3em; flex-shrink: 0; }
+  .toc a .n { color: var(--ink-faint); font-weight: 700; font-size: 0.8rem; }
+
+  /* ---------- Reglement parts ---------- */
+  .partie {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    overflow: hidden;
+    scroll-margin-top: 90px;
+  }
+  .partie > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 22px 26px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: -apple-system, sans-serif;
+  }
+  .partie > summary::-webkit-details-marker { display: none; }
+  .partie > summary .icon-badge {
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    background: var(--bg-alt);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .partie > summary .icon-badge .icon { width: 22px; height: 22px; }
+  .partie > summary .titles { flex: 1; }
+  .partie > summary .eyebrow2 { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; }
+  .partie > summary h2 { margin: 2px 0 0; font-size: 1.2rem; font-family: 'Georgia', serif; }
+  .partie > summary .chev { color: var(--ink-faint); transition: transform 0.2s ease; width: 20px; height: 20px; flex-shrink: 0; }
+  .partie[open] > summary .chev { transform: rotate(90deg); }
+  .partie-body { padding: 4px 26px 30px; border-top: 1px solid var(--line); }
+
+  .rule {
+    padding: 18px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .rule:last-child { border-bottom: none; }
+  .rule h3 {
+    margin: 0 0 6px;
+    font-size: 1.02rem;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .rule h3 .num {
+    font-family: -apple-system, sans-serif;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 0.85rem;
+  }
+  .rule p { margin: 0 0 8px; color: var(--ink-soft); }
+  .rule p:last-child { margin-bottom: 0; }
+  .rule ul { margin: 8px 0; padding-left: 22px; color: var(--ink-soft); }
+  .rule .example {
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: var(--bg-alt);
+    border-left: 3px solid var(--accent-warm);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.92rem;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+  .rule .example strong { font-style: normal; color: var(--accent-warm); font-family: -apple-system, sans-serif; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 6px; }
+
+  /* lexique terms grid */
+  .lexique-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .term {
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .term h4 { margin: 0 0 6px; font-size: 0.98rem; color: var(--accent); }
+  .term p { margin: 0 0 8px; font-size: 0.9rem; color: var(--ink-soft); }
+  .term .example { margin-top: 0; }
+
+  /* roles grid */
+  .roles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .role-card {
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+  }
+  .role-card h4 { margin: 0 0 6px; font-size: 1rem; display: flex; align-items: center; gap: 8px; }
+  .role-card h4 .icon { color: var(--accent); width: 1.1em; height: 1.1em; }
+  .role-card p { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+
+  .accept-box {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, var(--panel)), var(--panel));
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius);
+    padding: 34px 36px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .accept-box .icon-badge { margin: 0 auto 16px; }
+  .accept-box p { color: var(--ink-soft); max-width: 640px; margin: 0 auto; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 24px;
+    text-align: center;
+    color: var(--ink-faint);
+    font-family: -apple-system, sans-serif;
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--ink-faint); }
+  footer .foot-brand { color: var(--ink-soft); font-weight: 700; margin-bottom: 6px; display: block; }
+
+  @media (max-width: 720px) {
+    nav.links { display: none; }
+    .hero-text { padding: 24px; }
+    .partie > summary { padding: 18px; }
+    .partie-body { padding: 4px 18px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M3 20 L12 6 L21 20 Z"/><path d="M9.5 20 L12 15 L14.5 20"/><path d="M12 3 L12 6"/></svg>
+      Camping RP
+    </div>
+    <nav class="links">
+      <a href="#presentation">Présentation</a>
+      <a href="#equipe">Équipe</a>
+      <a href="#reglement">Règlement</a>
+    </nav>
+    <a class="discord-btn" href="https://discord.gg/campingrp" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M20.317 4.369A19.791 19.791 0 0 0 15.885 3c-.211.375-.444.879-.608 1.278a18.27 18.27 0 0 0-5.487 0C9.626 3.879 9.39 3.375 9.179 3a19.736 19.736 0 0 0-4.435 1.369C1.678 8.845.943 13.201 1.312 17.5a19.9 19.9 0 0 0 5.993 3.03c.483-.66.913-1.36 1.283-2.098a12.84 12.84 0 0 1-2.02-.978c.17-.124.336-.253.497-.386a14.19 14.19 0 0 0 12.07 0c.163.133.328.262.497.386-.643.383-1.318.71-2.02.978.37.738.8 1.438 1.283 2.098a19.86 19.86 0 0 0 5.994-3.03c.433-4.977-.736-9.291-3.572-13.131ZM8.68 14.813c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.419 0 1.334-.947 2.419-2.157 2.419Zm6.64 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.175 1.095 2.157 2.419 0 1.334-.947 2.419-2.157 2.419Z"/></svg>
+      Discord
+    </a>
+  </div>
+</header>
+
+<div class="hero" id="presentation">
+  <span class="eyebrow">
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    Whitelist · +18 · Île des Pins
+  </span>
+  <h1>Bienvenue sur Camping RP</h1>
+  <p class="subtitle">Un serveur FiveM whitelist entièrement pensé autour de la vie d'un camping — loin des poursuites sans fin et du RP illégal contre police qui saturent la communauté.</p>
+
+  <div class="hero-text">
+    <p>Camping RP est né d'une envie simple : proposer autre chose. Nous en avions assez de voir le roleplay FiveM se résumer, serveur après serveur, à un même schéma — course-poursuites, RP illégal, affrontements contre la police. <strong>Camping RP prend le contre-pied</strong> et mise sur une vie de camping réaliste, chaleureuse et immersive, où chaque joueur trouve sa place sans avoir besoin de tirer un coup de feu pour exister.</p>
+    <p>Nous apportons quelque chose de nouveau à la communauté FiveM : un serveur bien structuré, pensé dans les moindres détails, porté par un lore exceptionnel qui va bien au-delà d'un simple décor. Le Camping des Pins cache une trame paranormale profonde, à la fois mystérieuse et rigoureusement cohérente, qui évoluera avec le temps et avec vous.</p>
+    <p>Ce que vous découvrez aujourd'hui n'est que le début d'une bien plus grande aventure. Installez votre tente, prenez vos marques, et laissez-vous porter par l'histoire du Camping des Pins.</p>
+  </div>
+
+  <div class="hero-actions">
+    <a class="btn primary" href="https://discord.gg/campingrp" target="_blank" rel="noopener">
+      <svg class="icon" viewBox="0 0 24 24" style="stroke:none;fill:currentColor"><path d="M20.317 4.369A19.791 19.791 0 0 0 15.885 3c-.211.375-.444.879-.608 1.278a18.27 18.27 0 0 0-5.487 0C9.626 3.879 9.39 3.375 9.179 3a19.736 19.736 0 0 0-4.435 1.369C1.678 8.845.943 13.201 1.312 17.5a19.9 19.9 0 0 0 5.993 3.03c.483-.66.913-1.36 1.283-2.098a12.84 12.84 0 0 1-2.02-.978c.17-.124.336-.253.497-.386a14.19 14.19 0 0 0 12.07 0c.163.133.328.262.497.386-.643.383-1.318.71-2.02.978.37.738.8 1.438 1.283 2.098a19.86 19.86 0 0 0 5.994-3.03c.433-4.977-.736-9.291-3.572-13.131ZM8.68 14.813c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.419 0 1.334-.947 2.419-2.157 2.419Zm6.64 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.175 1.095 2.157 2.419 0 1.334-.947 2.419-2.157 2.419Z"/></svg>
+      Rejoindre le Discord
+    </a>
+    <a class="btn ghost" href="#reglement">
+      Lire le règlement
+      <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>
+
+<section class="block alt" id="equipe">
+  <div class="inner">
+    <div class="section-head">
+      <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.7-3 2.9-5 5.5-5s4.8 2 5.5 5"/><circle cx="17.5" cy="8.5" r="2.6"/><path d="M15.3 13.6c2.2.2 4 1.9 4.6 4.4"/></svg></div>
+      <h2>L'équipe</h2>
+      <p>Les personnes derrière Camping RP, au quotidien.</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="assets/team/arthuxx.png" alt="Avatar Arthuxx" />
+        <h3>Arthuxx</h3>
+        <span class="role">Fondateur &amp; Développeur</span>
+        <p class="bio">Créateur du projet Camping RP. Il supervise l'ensemble du serveur : développement, direction artistique, économie, lore et vision d'ensemble. C'est lui qui a posé la première pierre de l'Île des Pins — et qui veille à ce que chaque élément du serveur reste fidèle à cette vision.</p>
+      </div>
+      <div class="team-card">
+        <img src="assets/team/akira.png" alt="Avatar Akira" />
+        <h3>Akira</h3>
+        <span class="role">Co-Fondateur</span>
+        <p class="bio">Le bras droit du fondateur. Akira gère au quotidien tous types de situations sur le serveur — organisation, décisions, arbitrages — et s'assure que le projet avance sur tous les fronts, à la fois côté équipe et côté communauté.</p>
+      </div>
+      <div class="team-card">
+        <img src="assets/team/concombre.webp" alt="Avatar Concombre" />
+        <h3>Concombre</h3>
+        <span class="role">Mappeur</span>
+        <p class="bio">Mappeur du projet. C'est lui qui a entièrement créé la map du Camping des Pins et qui gère toute la partie 3D du serveur — du moindre sentier forestier jusqu'aux emplacements de tente, chaque recoin du camping porte sa patte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="reglement">
+  <div class="section-head">
+    <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h9l5 5v13H6z"/><path d="M15 3v5h5"/><path d="M9 12h6M9 16h6M9 8h2"/></svg></div>
+    <h2>Règlement général — Camping RP WL +18</h2>
+    <p>Camping des Pins · Île des Pins, France</p>
+  </div>
+
+  <nav class="toc" aria-label="Sommaire">
+    <a href="#partie-1"><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span class="n">I.</span> Informations générales</a>
+    <a href="#partie-2"><svg class="icon" viewBox="0 0 24 24"><path d="M4 5c3-1.5 6-1.5 8 0v14c-2-1.5-5-1.5-8 0Z"/><path d="M20 5c-3-1.5-6-1.5-8 0v14c2-1.5 5-1.5 8 0Z"/></svg><span class="n">II.</span> Lexique RP</a>
+    <a href="#partie-3"><svg class="icon" viewBox="0 0 24 24"><path d="M3 20 L12 6 L21 20 Z"/><path d="M9.5 20 L12 15 L14.5 20"/></svg><span class="n">III.</span> Règlement RP du camping</a>
+    <a href="#partie-4"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.7-3 2.9-5 5.5-5s4.8 2 5.5 5"/><circle cx="17.5" cy="8.5" r="2.6"/><path d="M15.3 13.6c2.2.2 4 1.9 4.6 4.4"/></svg><span class="n">IV.</span> Rôles officiels</a>
+    <a href="#partie-5"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3c-4 3-6 6-6 10a6 6 0 0 0 12 0c0-4-2-7-6-10Z"/><path d="M9.5 15.5a2.5 2.5 0 0 0 5 0"/></svg><span class="n">V.</span> Trame paranormale</a>
+    <a href="#partie-6"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="10" r="7"/><path d="M9 9.5c0-1 3-1 3 0M15 9.5c0-1-3-1-3 0" style="display:none"/><circle cx="9.3" cy="9.5" r="1"/><circle cx="14.7" cy="9.5" r="1"/><path d="M9 13c1 1 5 1 6 0"/><path d="M9 17 8 21M15 17l1 4M12 17.5V22"/></svg><span class="n">VI.</span> Mort RP &amp; Wipe</a>
+  </nav>
+
+  <!-- PARTIE I -->
+  <details class="partie" id="partie-1" open>
+    <summary>
+      <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+      <span class="titles"><span class="eyebrow2">Partie I</span><h2>Informations générales</h2></span>
+      <svg class="chev icon" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+    </summary>
+    <div class="partie-body">
+      <div class="rule">
+        <h3><span class="num">1.</span> Vision du serveur</h3>
+        <p>Camping RP WL est un serveur FiveM whitelist +18, centré sur un univers de camping réaliste situé en France, sur l'Île des Pins. Le serveur propose une économie réaliste, une vie de camping cohérente et une trame principale autour du paranormal.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">2.</span> Philosophie du projet</h3>
+        <p>L'objectif de Camping RP est de proposer un RP simple, agréable, immersif, et centré sur la vie d'un camping. Le Camping des Pins n'est ni magique ni fantastique : la trame paranormale repose sur une approche scientifique et pourra être interprétée différemment selon les personnages.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">3.</span> Équipe de modération</h3>
+        <p>Le staff encadre le serveur, règle les litiges et applique les sanctions nécessaires. Les décisions du staff doivent être respectées. Les désaccords doivent être discutés dans les espaces prévus à cet effet, et non directement en scène ou publiquement.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">4.</span> Sanctions</h3>
+        <p>Les sanctions sont progressives :</p>
+        <ul>
+          <li>Rappel à l'ordre</li>
+          <li>Avertissement 1</li>
+          <li>Avertissement 2</li>
+          <li>Bannissement définitif</li>
+        </ul>
+        <p>L'avertissement 2 constitue le dernier avertissement et peut notamment entraîner une exclusion d'une scène RP ou un bannissement temporaire. Le staff peut adapter une sanction selon la gravité, la répétition, l'impact sur le serveur et les circonstances de la faute.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">5.</span> Preuves</h3>
+        <p>Les preuves vidéo sont fortement recommandées en cas de litige (Medal, OBS...). Elles permettent de faciliter le traitement d'un dossier et peuvent innocenter un joueur.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">6.</span> Streamers</h3>
+        <p>Tout joueur souhaitant streamer doit créer un ticket afin d'obtenir le grade Streamer et connaître le règlement spécifique. Le streamer est responsable de son comportement, de ses viewers et de son chat. Le StreamHack et le Métagaming sont interdits, tout comme les comportements irrespectueux envers les joueurs, le staff ou le serveur. Le nom Camping RP doit apparaître dans le titre du live selon les consignes du staff.</p>
+      </div>
+    </div>
+  </details>
+
+  <!-- PARTIE II -->
+  <details class="partie" id="partie-2">
+    <summary>
+      <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24"><path d="M4 5c3-1.5 6-1.5 8 0v14c-2-1.5-5-1.5-8 0Z"/><path d="M20 5c-3-1.5-6-1.5-8 0v14c2-1.5 5-1.5 8 0Z"/></svg></span>
+      <span class="titles"><span class="eyebrow2">Partie II</span><h2>Lexique RP</h2></span>
+      <svg class="chev icon" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+    </summary>
+    <div class="partie-body">
+      <div class="lexique-grid">
+        <div class="term">
+          <h4>Fear RP</h4>
+          <p>Jouer la peur et prendre en compte le danger auquel votre personnage est confronté.</p>
+          <div class="example"><strong>Ex.</strong>Trois personnes armées vous encerclent et vous menacent : vous coopérez au lieu de les provoquer ou de tenter une action irréaliste.</div>
+        </div>
+        <div class="term">
+          <h4>Pain RP</h4>
+          <p>Jouer correctement la douleur et les conséquences physiques d'une blessure, d'un accident ou d'un choc.</p>
+          <div class="example"><strong>Ex.</strong>Après avoir reçu une balle dans la jambe, votre personnage ne reprend pas immédiatement une course normale.</div>
+        </div>
+        <div class="term">
+          <h4>Force RP</h4>
+          <p>Imposer une action ou une situation à un autre joueur sans lui laisser de réelle possibilité de réaction.</p>
+          <div class="example"><strong>Ex.</strong>« Je te menotte, je te mets dans mon véhicule et tu ne peux rien faire », sans laisser au joueur la possibilité de jouer la scène.</div>
+        </div>
+        <div class="term">
+          <h4>Win RP</h4>
+          <p>Chercher à gagner une scène à tout prix, notamment en exploitant le règlement, l'environnement ou une incohérence du jeu au détriment du RP.</p>
+          <div class="example"><strong>Ex.</strong>Continuer une poursuite malgré un accident important uniquement pour échapper aux poursuivants.</div>
+        </div>
+        <div class="term">
+          <h4>FreeKill</h4>
+          <p>Tuer un joueur sans raison ou justification RP valable.</p>
+          <div class="example"><strong>Ex.</strong>Tuer un vacancier simplement parce que vous n'aimez pas son comportement.</div>
+        </div>
+        <div class="term">
+          <h4>FreePunch</h4>
+          <p>Frapper ou agresser un joueur sans raison RP valable.</p>
+          <div class="example"><strong>Ex.</strong>Frapper un vacancier simplement parce qu'il passe devant vous.</div>
+        </div>
+        <div class="term">
+          <h4>CarKill</h4>
+          <p>Utiliser volontairement un véhicule comme une arme pour renverser ou tuer un joueur sans justification RP valable.</p>
+          <div class="example"><strong>Ex.</strong>Accélérer volontairement vers un groupe de vacanciers pour les renverser.</div>
+        </div>
+        <div class="term">
+          <h4>Bunny Hop</h4>
+          <p>Enchaîner les sauts afin de se déplacer plus rapidement ou d'éviter des tirs.</p>
+        </div>
+        <div class="term">
+          <h4>Chicken Run</h4>
+          <p>Effectuer des changements de direction rapides et irréalistes afin d'éviter des tirs ou des attaques.</p>
+        </div>
+        <div class="term">
+          <h4>Mass RP</h4>
+          <p>Considérer qu'un environnement est vivant et peuplé, même lorsque peu ou aucun joueur n'est présent.</p>
+          <div class="example"><strong>Ex.</strong>Considérer le Camping des Pins comme fréquenté par des vacanciers et du personnel même lorsque personne n'est visible.</div>
+        </div>
+        <div class="term">
+          <h4>FairPlay</h4>
+          <p>Privilégier la qualité et l'intérêt d'une scène plutôt que de chercher systématiquement à la gagner.</p>
+          <div class="example"><strong>Ex.</strong>Accepter qu'un autre joueur prenne l'avantage au lieu d'exploiter une mécanique du jeu pour retourner la situation.</div>
+        </div>
+        <div class="term">
+          <h4>Mixage</h4>
+          <p>Mélanger des informations ou des conversations HRP avec une scène RP (aussi appelé vocal HRP ou double vocal).</p>
+          <div class="example"><strong>Ex.</strong>Parler d'un problème technique ou d'un élément du jeu pendant une conversation entre personnages.</div>
+        </div>
+        <div class="term">
+          <h4>StreamHack</h4>
+          <p>Utiliser les informations obtenues en regardant le stream d'un joueur afin d'influencer son propre RP.</p>
+          <div class="example"><strong>Ex.</strong>Regarder le live d'un joueur pour connaître sa position et s'y rendre volontairement.</div>
+        </div>
+        <div class="term">
+          <h4>Métagaming</h4>
+          <p>Utiliser une information obtenue HRP pour influencer les actions ou les décisions de son personnage en RP.</p>
+          <div class="example"><strong>Ex.</strong>Apprendre sur Discord qu'un joueur se trouve à un endroit et décider d'y aller en jeu sans raison RP.</div>
+        </div>
+        <div class="term">
+          <h4>FreeLoot</h4>
+          <p>Récupérer les biens d'un joueur sans justification ou interaction RP valable.</p>
+          <div class="example"><strong>Ex.</strong>Fouiller un joueur inconscient et prendre son inventaire sans qu'une scène ne justifie le vol.</div>
+        </div>
+        <div class="term">
+          <h4>Value of Life</h4>
+          <p>Considérer que la vie de votre personnage a une réelle valeur, et qu'il cherche naturellement à la préserver.</p>
+          <div class="example"><strong>Ex.</strong>Seul face à plusieurs personnes armées vous tenant en joue, vous ne tentez pas de les affronter sans réelle possibilité de vous en sortir.</div>
+        </div>
+        <div class="term">
+          <h4>Ghost RP</h4>
+          <p>Quitter volontairement une scène ou ne plus se connecter afin d'éviter ses conséquences RP.</p>
+          <div class="example"><strong>Ex.</strong>Déconnecter son personnage pendant une scène et revenir plusieurs jours plus tard pour éviter ses conséquences.</div>
+        </div>
+        <div class="term">
+          <h4>UseBug</h4>
+          <p>Exploiter volontairement un bug ou un glitch du jeu ou d'un script afin d'obtenir un avantage ou d'accéder à une zone normalement inaccessible.</p>
+          <div class="example"><strong>Ex.</strong>Utiliser un glitch permettant de traverser un mur.</div>
+        </div>
+        <div class="term">
+          <h4>Reconnaissance</h4>
+          <p>Vous ne pouvez pas reconnaître une personne uniquement grâce à sa voix, sa tenue ou son véhicule si votre personnage n'a aucune raison RP de la reconnaître. Une reconnaissance est possible lorsqu'il existe une connaissance personnelle ou un signe distinctif réellement connu par votre personnage.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- PARTIE III -->
+  <details class="partie" id="partie-3">
+    <summary>
+      <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24"><path d="M3 20 L12 6 L21 20 Z"/><path d="M9.5 20 L12 15 L14.5 20"/></svg></span>
+      <span class="titles"><span class="eyebrow2">Partie III</span><h2>Règlement RP du Camping des Pins</h2></span>
+      <svg class="chev icon" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+    </summary>
+    <div class="partie-body">
+      <div class="rule">
+        <h3><span class="num">1.</span> Identité du lieu</h3>
+        <p>Le RP se déroule au Camping des Pins, situé en France sur l'Île des Pins. L'univers doit rester réaliste, cohérent, immersif et fidèle à l'ambiance d'un camping.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">2.</span> Cohérence du personnage</h3>
+        <p>Chaque personnage doit rester cohérent avec son âge, son histoire, sa fonction et les informations présentées lors de la WL. Les événements vécus en RP peuvent faire évoluer progressivement son comportement et sa manière d'agir.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">3.</span> Immersion</h3>
+        <p>Le RP doit rester fluide et naturel. Les réactions absurdes, les comportements hors contexte, le HRP en scène et les actions cassant volontairement l'ambiance sont interdits.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">4.</span> FairPlay</h3>
+        <p>Chaque scène doit laisser une réelle possibilité de réaction aux autres joueurs. Le but est de créer du jeu et de laisser place aux idées et à l'improvisation, et non de forcer une scène pour obtenir un résultat précis.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">5.</span> Fear RP</h3>
+        <p>Face à une menace crédible ou à une autorité légitime, votre personnage doit réagir de manière prudente et réaliste. Cela concerne notamment les agents de sécurité et les événements liés à la trame paranormale.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">6.</span> Pain RP</h3>
+        <p>Les blessures, la douleur, la fatigue et les malaises doivent être joués de manière cohérente avec la situation.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">7.</span> Informations après un coma</h3>
+        <p>Un personnage inconscient, ou sorti d'une situation ayant entraîné une perte de connaissance, ne peut pas utiliser les informations qu'il n'aurait pas pu connaître pendant cette période.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">8.</span> Alcool</h3>
+        <p>L'alcool doit être joué de manière réaliste. L'état d'ébriété doit notamment se ressentir dans la parole, la démarche, la lucidité et les décisions prises par le personnage.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">9.</span> Couple RP</h3>
+        <p>Le couple RP est autorisé s'il reste cohérent, respectueux, crédible et adapté à l'ambiance du serveur. Il ne doit cependant pas empêcher ou brider les scènes RP.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">10.</span> Sex RP</h3>
+        <p>Toute scène à caractère sexuel ou érotique est interdite, y compris lorsqu'elle est jouée uniquement en vocal, écrit ou sous-entendue de manière explicite.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">11.</span> Tenues</h3>
+        <p>Les tenues doivent être cohérentes avec l'univers du camping. Il est recommandé de changer régulièrement de tenue afin de renforcer l'immersion. Les vêtements sont gratuits : votre personnage est considéré comme arrivant au camping avec sa valise et plusieurs tenues.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">12.</span> Peds de tailles différentes</h3>
+        <p>Les personnages utilisant des tailles différentes sont autorisés s'ils sont demandés lors de la WL, justifiés par le personnage et cohérents avec l'univers.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">13.</span> Personnages mineurs</h3>
+        <p>Les personnages mineurs sont autorisés, mais doivent être joués avec cohérence, logique et maturité. Le camping étant un lieu de vacances, la présence de familles est naturellement cohérente avec l'univers.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">14.</span> Conduite dans le camping</h3>
+        <p>Le Camping des Pins comporte des routes étroites, des virages serrés et des zones fréquentées. La conduite doit donc rester prudente et adaptée à l'environnement. Les excès de vitesse abusifs, les manœuvres dangereuses, les chocs volontaires, la conduite agressive et l'utilisation abusive d'un véhicule comme arme sont interdits.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">15.</span> Véhicules</h3>
+        <p>Les camping-cars et autres véhicules doivent être utilisés de manière logique et adaptée au thème du serveur. Un camping-car étant un véhicule lourd et difficile à manœuvrer, sa conduite doit rester cohérente avec ses caractéristiques.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">16.</span> Économie</h3>
+        <p>L'économie du serveur se veut réaliste et fonctionne uniquement en espèces.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">17.</span> Farm abusif</h3>
+        <p>Des activités comme la pêche permettent de gagner de l'argent, mais le farm abusif est interdit. Il est interdit de réaliser une activité uniquement dans le but d'accumuler de l'argent sans véritable logique RP.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">18.</span> Vie du camping</h3>
+        <p>Le serveur repose sur une véritable vie de camping : activités, échanges, circulation, sécurité, loisirs et ambiance collective. Chaque joueur doit contribuer à faire vivre cet environnement.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">19.</span> Règles internes du camping</h3>
+        <p>Les règles internes du Camping des Pins doivent être respectées par tous les vacanciers. Leur non-respect peut entraîner un rappel à l'ordre, une sanction RP ou une expulsion du camping.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">20.</span> Sécurité du camping</h3>
+        <p>La sécurité veille au calme du camping, gère les conflits et fait respecter le règlement interne. Elle peut intervenir en cas d'abus ou de comportement problématique, et effectuer une fouille lorsque la situation le justifie. En cas de faute grave ou répétée, une expulsion du camping peut être décidée. Le camping est avant tout un lieu de détente : les joueurs viennent pour passer de bonnes vacances, pas pour créer des problèmes.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">21.</span> Conflits</h3>
+        <p>Les conflits entre vacanciers doivent rester cohérents avec l'ambiance du camping. Les violences graves ou répétées doivent avoir une véritable justification RP.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">22.</span> EMS</h3>
+        <p>Les EMS du serveur représentent un seul rôle : Maître-Nageur / Secouriste. Ils assurent les premiers secours, les soins, les interventions en cas d'accident et la prise en charge des urgences.</p>
+      </div>
+    </div>
+  </details>
+
+  <!-- PARTIE IV -->
+  <details class="partie" id="partie-4">
+    <summary>
+      <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.7-3 2.9-5 5.5-5s4.8 2 5.5 5"/><circle cx="17.5" cy="8.5" r="2.6"/><path d="M15.3 13.6c2.2.2 4 1.9 4.6 4.4"/></svg></span>
+      <span class="titles"><span class="eyebrow2">Partie IV</span><h2>Rôles officiels du Camping des Pins</h2></span>
+      <svg class="chev icon" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+    </summary>
+    <div class="partie-body">
+      <div class="roles-grid">
+        <div class="role-card">
+          <h4><svg class="icon" viewBox="0 0 24 24"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>Direction du camping</h4>
+          <p>Le gérant ou propriétaire du camping assure la gestion globale du camping et l'arbitrage final.</p>
+        </div>
+        <div class="role-card">
+          <h4><svg class="icon" viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6Z"/></svg>Sécurité du camping</h4>
+          <p>Veille au calme, gère les conflits, fait respecter le règlement interne et intervient en cas d'abus ou de comportement problématique.</p>
+        </div>
+        <div class="role-card">
+          <h4><svg class="icon" viewBox="0 0 24 24"><path d="M9 18V6l10 6z"/><path d="M4 6v12"/></svg>Animation &amp; Activités</h4>
+          <p>Organise les événements, jeux, concours et activités du camping.</p>
+        </div>
+        <div class="role-card">
+          <h4><svg class="icon" viewBox="0 0 24 24"><path d="M4 20c3-6 6-9 8-16 2 7 5 10 8 16"/><path d="M8 12h8"/></svg>Chef de randonnée</h4>
+          <p>Organise les randonnées, sorties et excursions RP en dehors du camping.</p>
+        </div>
+        <div class="role-card">
+          <h4><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="10" width="18" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Accueil &amp; Réception</h4>
+          <p>Premier contact avec les arrivants. Attribue les emplacements, oriente, informe et aide à l'installation.</p>
+        </div>
+        <div class="role-card">
+          <h4><svg class="icon" viewBox="0 0 24 24"><path d="M6 21V10c0-2 1.5-3 3-3h6c1.5 0 3 1 3 3v11"/><path d="M9 15h6"/></svg>Barman du camping</h4>
+          <p>Tient le bar ou la buvette, sert les vacanciers et participe à la vie sociale du camping.</p>
+        </div>
+        <div class="role-card">
+          <h4><svg class="icon" viewBox="0 0 24 24"><circle cx="8" cy="17" r="2.5"/><circle cx="17" cy="15" r="2.5"/><path d="M10.5 17V5l9-2v12"/></svg>DJ du camping</h4>
+          <p>S'occupe de l'ambiance musicale lors des soirées et événements.</p>
+        </div>
+        <div class="role-card">
+          <h4><svg class="icon" viewBox="0 0 24 24"><path d="M4 17c3-6 13-6 16 0"/><circle cx="12" cy="8" r="3"/></svg>Maître-Nageur / Secouriste</h4>
+          <p>Surveille la baignade et les activités nautiques, intervient en cas d'accident ou d'urgence.</p>
+        </div>
+        <div class="role-card">
+          <h4><svg class="icon" viewBox="0 0 24 24"><path d="M3 20 L12 6 L21 20 Z"/><path d="M9.5 20 L12 15 L14.5 20"/></svg>Vacancier</h4>
+          <p>Le rôle principal du serveur : profite du camping, participe aux activités et contribue à la vie du lieu.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- PARTIE V -->
+  <details class="partie" id="partie-5">
+    <summary>
+      <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3c-4 3-6 6-6 10a6 6 0 0 0 12 0c0-4-2-7-6-10Z"/><path d="M9.5 15.5a2.5 2.5 0 0 0 5 0"/></svg></span>
+      <span class="titles"><span class="eyebrow2">Partie V</span><h2>Trame paranormale</h2></span>
+      <svg class="chev icon" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+    </summary>
+    <div class="partie-body">
+      <div class="rule">
+        <h3><span class="num">1.</span> Nature de la trame</h3>
+        <p>Le paranormal constitue une trame centrale du serveur. Il ne s'agit pas simplement d'un élément décoratif : il peut influencer le RP et l'évolution de l'histoire.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">2.</span> Base scientifique</h3>
+        <p>La trame repose sur une approche scientifique. Le serveur n'est ni magique ni fantastique. Les personnages peuvent croire aux esprits ou avoir leurs propres interprétations, mais la logique globale de la trame reste scientifique.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">3.</span> Consignes de sécurité</h3>
+        <p>Certaines scènes liées à la trame pourront imposer des consignes particulières. Celles-ci devront être respectées par les joueurs concernés.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">4.</span> Respect de la trame</h3>
+        <p>La trame doit être prise en compte dans les comportements, décisions et réactions des personnages. L'ignorer volontairement peut entraîner une sanction HRP.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">5.</span> Interprétation du paranormal</h3>
+        <p>Les joueurs peuvent interpréter les événements paranormaux selon les connaissances et croyances de leur personnage. Ils ne peuvent cependant pas inventer de faits, pouvoirs ou éléments de trame qui n'ont pas été introduits ou validés par le staff.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">6.</span> Évolution de la trame</h3>
+        <p>Des annonces seront communiquées lorsque de nouvelles mécaniques ou conséquences importantes liées à la trame seront mises en place.</p>
+      </div>
+    </div>
+  </details>
+
+  <!-- PARTIE VI -->
+  <details class="partie" id="partie-6">
+    <summary>
+      <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24"><circle cx="9.3" cy="9.5" r="1"/><circle cx="14.7" cy="9.5" r="1"/><circle cx="12" cy="10" r="7"/><path d="M9 13c1 1 5 1 6 0"/><path d="M9 17 8 21M15 17l1 4M12 17.5V22"/></svg></span>
+      <span class="titles"><span class="eyebrow2">Partie VI</span><h2>Mort RP &amp; Wipe</h2></span>
+      <svg class="chev icon" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+    </summary>
+    <div class="partie-body">
+      <div class="rule">
+        <h3><span class="num">1.</span> Mort RP</h3>
+        <p>La Mort RP est possible sur le serveur. Elle doit toujours être cohérente, justifiée, logique et intégrée à une véritable scène RP. Toute demande de Mort RP doit faire l'objet d'un dossier préalable.</p>
+        <p>Le staff peut également décider qu'une scène justifie une Mort RP. En cas de blessure extrêmement grave ou répétée, les Maîtres-Nageurs / Secouristes peuvent signaler une situation pouvant justifier une Mort RP au staff. La décision finale appartient au staff. La trame paranormale pourra également, au fur et à mesure de son évolution, entraîner la Mort RP de certains personnages.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">2.</span> Wipe</h3>
+        <p>Le Wipe est autorisé. Après un Wipe, aucun bien ou avantage ne peut être transféré d'un personnage à un autre et aucun contournement n'est autorisé.</p>
+        <p>Un ticket doit être ouvert avec un dossier comprenant la raison du Wipe, la scène justifiant le départ du personnage du camping, ainsi que le background, les objectifs et les informations du nouveau personnage — comme lors de la WL écrite.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">3.</span> Conséquences RP</h3>
+        <p>Chaque action importante peut avoir des conséquences durables. Le serveur valorise les choix crédibles et la cohérence des conséquences RP.</p>
+      </div>
+      <div class="rule">
+        <h3><span class="num">4.</span> Sanctions HRP</h3>
+        <p>Le non-respect du règlement HRP ne constitue pas une Mort RP. Il entraîne une sanction du staff pouvant aller jusqu'au bannissement, selon la gravité des faits.</p>
+      </div>
+    </div>
+  </details>
+
+  <div class="accept-box" style="margin-top:32px;">
+    <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+    <h2 style="margin:0 0 10px;font-size:1.3rem;">Acceptation du règlement</h2>
+    <p>En rejoignant Camping RP WL et en jouant au Camping des Pins, vous reconnaissez avoir lu, compris et accepté ce règlement. Vous vous engagez à respecter le staff, les autres joueurs, l'univers du serveur, les scènes RP, les règles du serveur et les conséquences de vos actions RP.</p>
+  </div>
+</section>
+
+<footer>
+  <span class="foot-brand">Camping RP — Île des Pins</span>
+  <p>Serveur FiveM whitelist +18 · <a href="https://discord.gg/campingrp" target="_blank" rel="noopener">discord.gg/campingrp</a></p>
+</footer>
+
+</body>
+</html>
