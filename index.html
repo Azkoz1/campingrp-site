@@ -452,9 +452,9 @@
     <nav class="links">
       <a href="#presentation">Présentation</a>
       <a href="#equipe">Équipe</a>
-      <a href="#lore">Lore</a>
       <a href="#donateurs">Donateurs</a>
       <a href="#reglement">Règlement</a>
+      <a href="#lore">Lore</a>
     </nav>
     <a class="discord-btn" href="https://discord.gg/campingrp" target="_blank" rel="noopener">
       <svg class="icon" viewBox="0 0 24 24"><path d="M20.317 4.369A19.791 19.791 0 0 0 15.885 3c-.211.375-.444.879-.608 1.278a18.27 18.27 0 0 0-5.487 0C9.626 3.879 9.39 3.375 9.179 3a19.736 19.736 0 0 0-4.435 1.369C1.678 8.845.943 13.201 1.312 17.5a19.9 19.9 0 0 0 5.993 3.03c.483-.66.913-1.36 1.283-2.098a12.84 12.84 0 0 1-2.02-.978c.17-.124.336-.253.497-.386a14.19 14.19 0 0 0 12.07 0c.163.133.328.262.497.386-.643.383-1.318.71-2.02.978.37.738.8 1.438 1.283 2.098a19.86 19.86 0 0 0 5.994-3.03c.433-4.977-.736-9.291-3.572-13.131ZM8.68 14.813c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.419 0 1.334-.947 2.419-2.157 2.419Zm6.64 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.175 1.095 2.157 2.419 0 1.334-.947 2.419-2.157 2.419Z"/></svg>
@@ -518,252 +518,6 @@
       </div>
     </div>
   </div>
-</section>
-
-<section id="lore">
-<style>
-  #lore { position: relative; padding: 0; margin: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
-  #lore .lore-canvas,
-  #lore .lore-canvas *,
-  #lore .lore-canvas *::before,
-  #lore .lore-canvas *::after { box-sizing: border-box; }
-  #lore .lore-canvas {
-    --canvas:#e9ddc0; --canvas-2:#ded0ac; --pine:#2f4a3d; --pine-deep:#1c2f27;
-    --ember:#c1622d; --dusk:#1b2430; --dusk-2:#0f151d; --fog:#8a97a0;
-    --wound:#9a2b1f; --paper-line: rgba(47,74,61,0.18); --ink-l:#242017;
-    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
-    line-height: 1.65;
-  }
-  #lore .lore-intro {
-    max-width: var(--max); margin: 0 auto; padding: 64px 24px 0;
-  }
-  #lore .lore-toc {
-    max-width: 640px; margin: 26px auto 0;
-    display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center;
-    font-family: "Courier New", ui-monospace, monospace;
-    font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
-    padding-bottom: 40px;
-  }
-  #lore .lore-toc a { color: var(--pine); opacity: 0.75; }
-  #lore .lore-toc a:hover { color: var(--ember); opacity: 1; }
-  #lore .lore-intro-head { text-align: center; margin-bottom: 0; }
-  #lore .lore-intro-head .lore-badge {
-    width: 52px; height: 52px; border-radius: 14px;
-    background: var(--pine-deep); border: 1px solid var(--pine);
-    display: inline-flex; align-items: center; justify-content: center;
-    margin-bottom: 16px; color: var(--canvas);
-  }
-  #lore .lore-intro-head .lore-badge svg { width: 26px; height: 26px; }
-  #lore .lore-intro-head h2 { color: var(--pine-deep); font-size: clamp(1.6rem, 3.4vw, 2.1rem); margin: 0 0 8px; }
-  #lore .lore-intro-head p { color: var(--pine); max-width: 560px; margin: 0 auto; font-size: 0.98rem; }
-  #lore .lore-sec { position: relative; padding: 5.5rem 1.5rem 6rem; overflow: hidden; }
-  #lore .lore-wrap { max-width: 640px; margin: 0 auto; position: relative; z-index: 2; }
-  #lore .lore-treeline { height: 46px; display: flex; align-items: flex-end; justify-content: center; gap: 2px; opacity: 0.5; }
-  #lore .lore-treeline span { width: 22px; height: 100%; background: currentColor; clip-path: polygon(50% 0%, 100% 100%, 0% 100%); }
-  #lore .lore-treeline span:nth-child(2n) { height: 70%; }
-  #lore .lore-treeline span:nth-child(3n) { height: 85%; }
-  #lore .lore-eyebrow { font-family: "Courier New", ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pine); margin: 0 0 0.6rem; opacity: 0.75; }
-  #lore h2.lore-h { font-family: "Palatino Linotype", Palatino, Georgia, serif; font-weight: 700; text-wrap: balance; margin: 0 0 0.9rem; color: var(--pine-deep); font-size: clamp(1.35rem, 4vw, 1.7rem); }
-  #lore .lore-sub { font-size: 1.05rem; font-style: italic; color: var(--pine); margin: 0 0 2rem; max-width: 34ch; }
-  #lore .lore-sec p { margin: 0 0 1.1rem; }
-  #lore .lore-sec p:last-child { margin-bottom: 0; }
-  #lore .lore-lede { font-size: 1.05rem; }
-  #lore ul.lore-amenities { list-style: none; margin: 1.8rem 0 0; padding: 0; display: grid; gap: 0.7rem; border-top: 1px solid var(--paper-line); padding-top: 1.4rem; }
-  #lore ul.lore-amenities li { display: flex; gap: 0.8rem; font-size: 0.95rem; }
-  #lore ul.lore-amenities li b { color: var(--pine-deep); font-family: "Courier New", ui-monospace, monospace; font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; flex: 0 0 auto; padding-top: 0.15rem; }
-  #lore .lore-quote { margin: 1.6rem 0; padding: 0.2rem 0 0.2rem 1.1rem; border-left: 2px solid var(--ember); font-style: italic; }
-  #lore .lore-quote cite { display: block; margin-top: 0.4rem; font-style: normal; font-family: "Courier New", ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--pine); opacity: 0.7; }
-  #lore .lore-report { font-family: "Courier New", ui-monospace, monospace; background: rgba(0,0,0,0.03); border: 1px solid var(--paper-line); padding: 1.4rem 1.3rem; font-size: 0.86rem; line-height: 1.7; position: relative; }
-  #lore .lore-report .stamp { display: inline-block; border: 2px solid var(--wound); color: var(--wound); padding: 0.2rem 0.6rem; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; transform: rotate(-3deg); margin-bottom: 1rem; }
-  #lore .lore-report dl { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 0.9rem; margin: 0 0 1.1rem; font-size: 0.78rem; }
-  #lore .lore-report dt { opacity: 0.65; text-transform: uppercase; letter-spacing: 0.04em; }
-  #lore .lore-report dt::after { content: ":"; }
-  #lore .lore-report .redacted { background: var(--ink-l); color: var(--ink-l); border-radius: 2px; user-select: none; }
-  #lore .lore-fragments { display: grid; gap: 1.3rem; }
-  #lore .lore-fragment { padding: 1rem 1.1rem; background: rgba(0,0,0,0.04); border-left: 2px solid var(--fog); }
-  #lore .lore-fragment p { font-size: 0.95rem; font-style: italic; }
-  #lore .lore-fragment cite { display: block; margin-top: 0.5rem; font-family: "Courier New", ui-monospace, monospace; font-style: normal; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7; }
-  #lore .lore-fragment.pinned { font-family: "Courier New", ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.04em; text-align: center; border-left: none; border: 1px dashed var(--wound); color: var(--wound); }
-  #lore .lore-scratches { position: absolute; inset: 0; pointer-events: none; opacity: 0.06; background-image: linear-gradient(105deg, transparent 46%, currentColor 47%, currentColor 48%, transparent 49%), linear-gradient(100deg, transparent 56%, currentColor 57%, currentColor 57.6%, transparent 58.6%), linear-gradient(110deg, transparent 66%, currentColor 66.7%, currentColor 67.4%, transparent 68.4%); }
-  #lore .lore-signoff { margin-top: 2.2rem; padding-top: 1.4rem; border-top: 1px solid var(--fog); font-size: 0.88rem; opacity: 0.85; }
-  #lore .lore-signoff .role { display: block; margin-top: 0.3rem; font-family: "Courier New", ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
-  #lore .lore-foot { text-align: center; padding: 3rem 1.5rem 4rem; font-family: "Courier New", ui-monospace, monospace; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fog); background: var(--dusk-2); }
-</style>
-<div class="lore-canvas">
-
-  <div class="lore-intro" style="background: var(--canvas);">
-    <div class="lore-intro-head">
-      <div class="lore-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4 3-6 6-6 10a6 6 0 0 0 12 0c0-4-2-7-6-10Z"/><path d="M9.5 15.5a2.5 2.5 0 0 0 5 0"/></svg></div>
-      <h2>Le lore du Camping des Pins</h2>
-      <p>La brochure officielle du camping — et ce qu'elle ne dit pas tout à fait.</p>
-    </div>
-    <nav class="lore-toc" aria-label="Sommaire du lore">
-      <a href="#lore-accueil">Accueil</a>
-      <a href="#lore-histoire">Une histoire</a>
-      <a href="#lore-jour1">L'arrivée</a>
-      <a href="#lore-jour6">Une absence</a>
-      <a href="#lore-jour9">Ce qu'on a retrouvé</a>
-      <a href="#lore-rumeurs">Rumeurs</a>
-      <a href="#lore-sentier">Le sentier</a>
-      <a href="#lore-mot">Mot du directeur</a>
-    </nav>
-  </div>
-
-  <section id="lore-accueil" class="lore-sec" style="background: var(--canvas); color: var(--ink-l);">
-    <div class="lore-wrap">
-      <p class="lore-eyebrow">Brochure officielle — saison de réouverture</p>
-      <h2 class="lore-h" style="font-size:clamp(2.1rem, 6vw, 3.1rem);">Camping&nbsp;des&nbsp;Pins</h2>
-      <p class="lore-sub">Au large, entre pins centenaires et eaux calmes, un séjour dont vous vous souviendrez longtemps.</p>
-      <p class="lore-lede">Bienvenue au Camping des Pins. Posé sur l'Île des Pins, reliée au continent par un pont, entre crique abritée et forêt qui recouvre l'île presque tout entière, notre domaine rouvre cet été ses portes aux familles, aux amoureux du grand air et aux curieux en quête de tranquillité.</p>
-      <p>Ici, les journées se comptent en baignades, en parties de pêche et en soirées autour du feu. Les nuits, elles, appartiennent à l'île — et nous vous invitons à les lui laisser.</p>
-      <ul class="lore-amenities">
-        <li><b>Accès</b> Un pont relie l'île au continent, praticable en voiture toute l'année — remis en état par les équipes du camping avant la réouverture. Une navette bateau dessert aussi la crique en journée, pour le plaisir.</li>
-        <li><b>Crique</b> Location de barques, coin pêche équipé, canne et appâts en vente à l'accueil.</li>
-        <li><b>Toboggans</b> Deux glissades aquatiques aménagées, bouées fournies sur place.</li>
-        <li><b>Boutique</b> L'accueil tient l'essentiel : boissons, en-cas, vêtements de rechange.</li>
-        <li><b>Soirées</b> Buvette animée chaque samedi, DJ résident jusqu'à la nuit tombée.</li>
-        <li><b>Sécurité</b> Une équipe assure des rondes discrètes, jour et nuit, sur l'ensemble du domaine.</li>
-        <li><b>Pins</b> Sentiers balisés à travers la forêt. Nous recommandons de rester sur les chemins marqués après la tombée de la nuit — simple prudence, comme partout en pleine nature.</li>
-      </ul>
-    </div>
-  </section>
-
-  <div class="lore-treeline" style="color: var(--pine); background: var(--canvas);"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-
-  <section id="lore-histoire" class="lore-sec" style="background: var(--canvas-2); color: var(--ink-l);">
-    <div class="lore-wrap">
-      <p class="lore-eyebrow">Un peu d'histoire</p>
-      <h2 class="lore-h">Une île, un nouveau départ</h2>
-      <p>L'Île des Pins n'apparaît sur aucune carte avant 1986. Cette année-là seulement, le continent découvre ce qu'il ignorait jusque-là : un bout de terre couvert de pins, à peine visible depuis la côte, où un camping tournait déjà — tenu par un homme dont presque personne n'avait jamais entendu parler.</p>
-      <p>Les saisons se sont enchaînées quelques années encore, dans une relative discrétion. Puis, un jour, ce premier propriétaire a disparu — sans un mot, sans laisser d'explication à qui que ce soit. Il a fallu attendre plusieurs années avant qu'on ne le retrouve, sur l'île même, dans des circonstances que personne n'a jamais réellement éclaircies. L'endroit est resté fermé depuis, peu à peu ravalé par les pins.</p>
-      <div class="lore-quote">
-        « Plus personne n'accostait sur cette île. Même les vieux du port en parlaient à voix basse, quand ils en parlaient. »
-        <cite>Un habitué du port, sur le continent</cite>
-      </div>
-      <p>C'est Philippe Rousselio, investisseur, qui a fini par racheter le domaine et décider de lui redonner vie. Lui-même n'a pourtant jamais remis les pieds sur l'île depuis l'achat — c'est son fils, Thomas Rousselio, qu'il a envoyé seul superviser la réouverture. Pourquoi ce choix ? Personne, à ce jour, n'a réussi à le lui faire dire.</p>
-    </div>
-  </section>
-
-  <div class="lore-treeline" style="color: var(--pine); background: var(--canvas-2);"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-
-  <section id="lore-jour1" class="lore-sec" style="background:#d4c69f; color: var(--ink-l);">
-    <div class="lore-wrap">
-      <h2 class="lore-h">L'arrivée</h2>
-      <p>Les premières tentes se montent avant midi. Les enfants courent déjà vers la crique pendant que leurs parents négocient l'emplacement le plus à l'ombre des pins. À la buvette, on ressert le café à ceux qui ont roulé toute la nuit pour passer le pont à temps.</p>
-      <div class="lore-quote">
-        « Je venais ici gamine, avec mes parents, avant que ça ferme. J'ai cru que jamais personne ne rouvrirait cet endroit. Ça fait drôle d'y remettre les pieds. »
-        <cite>Térésa, 41 ans — revient après des années</cite>
-      </div>
-      <p>Le soir venu, le premier feu de camp de la saison réunit une trentaine de campeurs. Thomas fait le tour des tentes, encore un peu tendu — c'est sa première vraie soirée en tant que directeur. On se raconte les news de l'année, on refait connaissance. Personne, ce soir-là, ne pense aux pins qui bordent le camp — sombres, immobiles, silencieux.</p>
-    </div>
-  </section>
-
-  <div class="lore-treeline" style="color: var(--pine); background:#d4c69f;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-
-  <section id="lore-jour6" class="lore-sec" style="background:#c9baa1; color: var(--ink-l);">
-    <div class="lore-wrap">
-      <h2 class="lore-h">Une absence</h2>
-      <p>Au petit matin, la famille du chalet 12 signale l'absence d'un des leurs. Le jeune homme était parti seul en début de soirée pour « marcher un peu du côté de la crique » et n'a pas reparu.</p>
-      <p>La direction se veut rassurante : il ne serait pas le premier campeur à repartir sans prévenir, agacé par une dispute de couple ou simplement lassé plus tôt que prévu. L'équipe de sécurité effectue tout de même une ronde élargie, jusqu'à la lisière des pins, sans rien trouver de particulier.</p>
-      <div class="lore-quote">
-        « On m'a dit de ne pas m'inquiéter, que ça arrivait tout le temps. Mais il avait laissé son sac, ses affaires, même son téléphone sur la table du chalet. »
-        <cite>Un proche du disparu, resté anonyme</cite>
-      </div>
-    </div>
-  </section>
-
-  <div class="lore-treeline" style="color: var(--pine-deep); background:#c9baa1;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-
-  <section id="lore-jour9" class="lore-sec" style="background:#8b8266; color:#241f14;">
-    <div class="lore-wrap">
-      <h2 class="lore-h">Ce qu'on a retrouvé</h2>
-      <p>Ce que la direction espérait ne jamais avoir à communiquer a fini par filtrer. Voici, tel que transmis à l'équipe de sécurité, l'essentiel du rapport interne rédigé après la découverte à la pointe nord de l'île.</p>
-      <div class="lore-report">
-        <span class="stamp">Diffusion restreinte</span>
-        <dl>
-          <dt>Origine</dt><dd>Sécurité du camping</dd>
-          <dt>Lieu</dt><dd>Pointe nord de l'île, dans les pins, à 40 m du dernier sentier balisé</dd>
-          <dt>Découvert par</dt><dd><span class="redacted">████████</span>, agent de sécurité</dd>
-          <dt>Transmis à</dt><dd>Gendarmerie — sans suite publique à ce jour</dd>
-        </dl>
-        <p>Corps retrouvé partiellement dissimulé sous des branchages, dans un état de délabrement qu'aucun animal recensé dans la région ne peut raisonnablement expliquer. Plaies profondes, arrachements musculaires nets, aucune trace de morsure compatible avec un sanglier, un chien errant ou tout autre prédateur connu du secteur.</p>
-        <p>L'aide-soignant appelé sur place a refusé de signer le constat initial, déclarant « n'avoir jamais rien vu de tel ». Sur ordre de la direction, les vacanciers n'en ont jamais rien su, histoire de « ne pas alimenter la panique ». Le camping reste ouvert.</p>
-      </div>
-    </div>
-    <div class="lore-scratches" style="color:#241f14;"></div>
-  </section>
-
-  <div class="lore-treeline" style="color:#3a3226; background:#8b8266;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-
-  <section id="lore-rumeurs" class="lore-sec" style="background:#4a4436; color:#efe6cf;">
-    <div class="lore-wrap">
-      <p class="lore-eyebrow" style="color:#efe6cf;">Autour du feu de camp</p>
-      <h2 class="lore-h" style="color:#efe6cf;">Ce qu'on raconte</h2>
-      <p>Rien n'est officiel. Mais entre deux bûches, les langues se délient.</p>
-      <div class="lore-fragments">
-        <div class="lore-fragment">
-          <p>« Mon grand-père parlait déjà de bruits dans ces pins, certains soirs. On riait bien de lui, à l'époque. »</p>
-          <cite>Un pêcheur, habitué de l'île depuis vingt ans</cite>
-        </div>
-        <div class="lore-fragment">
-          <p>« On raconte que le père de Thomas connaissait déjà cette île, avant. Qu'il y aurait même mis les pieds, une fois, il y a longtemps. Depuis, plus jamais. Allez savoir pourquoi il a préféré envoyer son fils plutôt que d'y retourner lui-même. »</p>
-          <cite>Un ancien du village, sur le continent</cite>
-        </div>
-        <div class="lore-fragment">
-          <p>« J'ai relevé des traces, cette semaine-là. Pas des traces qu'on a l'habitude de voir par ici. Elles s'arrêtaient net, à une dizaine de mètres du sentier, sans aucune explication. »</p>
-          <cite>Un agent de sécurité, off the record</cite>
-        </div>
-        <div class="lore-fragment">
-          <p>« On a entendu un truc hurler, cette nuit-là. Mon père dit que c'est un cerf qui brame. Un cerf, ça braille pas comme ça. »</p>
-          <cite>Un adolescent du chalet 7</cite>
-        </div>
-        <div class="lore-fragment">
-          <p>« La direction nous a demandé de verrouiller systématiquement les poubelles le soir, même celles de l'intérieur. Consigne bizarre, mais bon, c'est pas à moi de discuter. »</p>
-          <cite>Une employée de la boutique</cite>
-        </div>
-        <div class="lore-fragment">
-          <p>« Un campeur a lâché le mot "loup-garou" autour du feu, un soir, pour rigoler. Le lendemain, un vigile est venu lui rappeler très calmement que ce genre de blague ne faisait rire personne à la direction. Il n'a plus jamais reparlé de ça devant du monde. »</p>
-          <cite>Un habitué des soirées buvette</cite>
-        </div>
-        <div class="lore-fragment pinned">
-          Ne sortez pas seuls la nuit.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="lore-treeline" style="color:#231f18; background:#4a4436;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-
-  <section id="lore-sentier" class="lore-sec" style="background: var(--dusk); color:#dbe0e4;">
-    <div class="lore-wrap">
-      <h2 class="lore-h" style="color:#dbe0e4;">Le sentier interdit</h2>
-      <p>Un petit groupe de randonneurs, mené par un campeur du nom de Manu, s'écarte un instant du sentier balisé pour couper au plus court à travers les pins vers la crique. Ils tombent sur une formation rocheuse qu'aucune carte du camping ne mentionne : un renfoncement dans la roche, à moitié dissimulé par la végétation, comme repoussé de l'intérieur plutôt qu'effondré naturellement.</p>
-      <p>De longues entailles marquent la pierre à l'entrée — trop régulières pour l'érosion, trop profondes pour un outil. Avant que quiconque n'ait pu s'aventurer plus loin, l'équipe de sécurité boucle le secteur dans l'heure. Raison officielle : « risque d'éboulement ». Un grillage et un cadenas condamnent désormais l'accès. Un garde y est posté en permanence depuis.</p>
-      <div class="lore-quote">
-        « On n'a rien vu de spécial, franchement. Juste un trou dans la roche. Mais ils sont venus vite. Beaucoup trop vite pour un simple risque d'éboulement. »
-        <cite>Manu, campeur</cite>
-      </div>
-    </div>
-  </section>
-
-  <section id="lore-mot" class="lore-sec" style="background: var(--dusk-2); color:#c7ccd1;">
-    <div class="lore-wrap">
-      <p class="lore-eyebrow" style="color:#c7ccd1;">Mot du directeur</p>
-      <h2 class="lore-h" style="color:#c7ccd1;">Le séjour continue</h2>
-      <p>Le Camping des Pins reste ouvert. Les activités se poursuivent comme prévu : baignades à la crique, pêche, soirées à la buvette. Ce n'est pas quelques rumeurs de coin de feu qui vont remettre en cause ce que nous avons mis des mois à rouvrir.</p>
-      <p>Nous avons simplement renforcé les rondes de nuit et avancé le couvre-feu recommandé à 23h aux abords des pins. Ce ne sont là que des précautions ordinaires, pour une île qui reste, avant tout, sauvage.</p>
-      <p>Si, une nuit, vous entendez quelque chose bouger entre les arbres — un souffle, un pas trop lourd, un hurlement qui ne ressemble à rien de connu — la meilleure chose à faire est probablement de rentrer sous la tente et de ne pas vérifier.</p>
-      <p>Mon père n'a jamais voulu remettre les pieds sur cette île. Il ne m'a jamais dit pourquoi non plus. Je préfère, pour l'instant, avancer plutôt que chercher des réponses qu'il a toujours refusé de me donner.</p>
-      <p>Certaines réponses, ici, valent peut-être moins cher que le doute.</p>
-      <div class="lore-signoff">
-        Bon séjour à tous.
-        <span class="role">— Thomas Rousselio, Directeur — Camping des Pins</span>
-      </div>
-    </div>
-  </section>
-
-  <div class="lore-foot">Livret remis à l'accueil · Camping des Pins</div>
-</div>
 </section>
 
 <section class="block" id="donateurs">
@@ -1156,6 +910,253 @@
     <p>En rejoignant Camping RP WL et en jouant au Camping des Pins, vous reconnaissez avoir lu, compris et accepté ce règlement. Vous vous engagez à respecter le staff, les autres joueurs, l'univers du serveur, les scènes RP, les règles du serveur et les conséquences de vos actions RP.</p>
   </div>
 </section>
+
+<section id="lore">
+<style>
+  #lore { position: relative; padding: 0; margin: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
+  #lore .lore-canvas,
+  #lore .lore-canvas *,
+  #lore .lore-canvas *::before,
+  #lore .lore-canvas *::after { box-sizing: border-box; }
+  #lore .lore-canvas {
+    --canvas:#e9ddc0; --canvas-2:#ded0ac; --pine:#2f4a3d; --pine-deep:#1c2f27;
+    --ember:#c1622d; --dusk:#1b2430; --dusk-2:#0f151d; --fog:#8a97a0;
+    --wound:#9a2b1f; --paper-line: rgba(47,74,61,0.18); --ink-l:#242017;
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    line-height: 1.65;
+  }
+  #lore .lore-intro {
+    max-width: var(--max); margin: 0 auto; padding: 64px 24px 0;
+  }
+  #lore .lore-toc {
+    max-width: 640px; margin: 26px auto 0;
+    display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center;
+    font-family: "Courier New", ui-monospace, monospace;
+    font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+    padding-bottom: 40px;
+  }
+  #lore .lore-toc a { color: var(--pine); opacity: 0.75; }
+  #lore .lore-toc a:hover { color: var(--ember); opacity: 1; }
+  #lore .lore-intro-head { text-align: center; margin-bottom: 0; }
+  #lore .lore-intro-head .lore-badge {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: var(--pine-deep); border: 1px solid var(--pine);
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; color: var(--canvas);
+  }
+  #lore .lore-intro-head .lore-badge svg { width: 26px; height: 26px; }
+  #lore .lore-intro-head h2 { color: var(--pine-deep); font-size: clamp(1.6rem, 3.4vw, 2.1rem); margin: 0 0 8px; }
+  #lore .lore-intro-head p { color: var(--pine); max-width: 560px; margin: 0 auto; font-size: 0.98rem; }
+  #lore .lore-sec { position: relative; padding: 5.5rem 1.5rem 6rem; overflow: hidden; }
+  #lore .lore-wrap { max-width: 640px; margin: 0 auto; position: relative; z-index: 2; }
+  #lore .lore-treeline { height: 46px; display: flex; align-items: flex-end; justify-content: center; gap: 2px; opacity: 0.5; }
+  #lore .lore-treeline span { width: 22px; height: 100%; background: currentColor; clip-path: polygon(50% 0%, 100% 100%, 0% 100%); }
+  #lore .lore-treeline span:nth-child(2n) { height: 70%; }
+  #lore .lore-treeline span:nth-child(3n) { height: 85%; }
+  #lore .lore-eyebrow { font-family: "Courier New", ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pine); margin: 0 0 0.6rem; opacity: 0.75; }
+  #lore h2.lore-h { font-family: "Palatino Linotype", Palatino, Georgia, serif; font-weight: 700; text-wrap: balance; margin: 0 0 0.9rem; color: var(--pine-deep); font-size: clamp(1.35rem, 4vw, 1.7rem); }
+  #lore .lore-sub { font-size: 1.05rem; font-style: italic; color: var(--pine); margin: 0 0 2rem; max-width: 34ch; }
+  #lore .lore-sec p { margin: 0 0 1.1rem; }
+  #lore .lore-sec p:last-child { margin-bottom: 0; }
+  #lore .lore-lede { font-size: 1.05rem; }
+  #lore ul.lore-amenities { list-style: none; margin: 1.8rem 0 0; padding: 0; display: grid; gap: 0.7rem; border-top: 1px solid var(--paper-line); padding-top: 1.4rem; }
+  #lore ul.lore-amenities li { display: flex; gap: 0.8rem; font-size: 0.95rem; }
+  #lore ul.lore-amenities li b { color: var(--pine-deep); font-family: "Courier New", ui-monospace, monospace; font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; flex: 0 0 auto; padding-top: 0.15rem; }
+  #lore .lore-quote { margin: 1.6rem 0; padding: 0.2rem 0 0.2rem 1.1rem; border-left: 2px solid var(--ember); font-style: italic; }
+  #lore .lore-quote cite { display: block; margin-top: 0.4rem; font-style: normal; font-family: "Courier New", ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--pine); opacity: 0.7; }
+  #lore .lore-report { font-family: "Courier New", ui-monospace, monospace; background: rgba(0,0,0,0.03); border: 1px solid var(--paper-line); padding: 1.4rem 1.3rem; font-size: 0.86rem; line-height: 1.7; position: relative; }
+  #lore .lore-report .stamp { display: inline-block; border: 2px solid var(--wound); color: var(--wound); padding: 0.2rem 0.6rem; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; transform: rotate(-3deg); margin-bottom: 1rem; }
+  #lore .lore-report dl { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 0.9rem; margin: 0 0 1.1rem; font-size: 0.78rem; }
+  #lore .lore-report dt { opacity: 0.65; text-transform: uppercase; letter-spacing: 0.04em; }
+  #lore .lore-report dt::after { content: ":"; }
+  #lore .lore-report .redacted { background: var(--ink-l); color: var(--ink-l); border-radius: 2px; user-select: none; }
+  #lore .lore-fragments { display: grid; gap: 1.3rem; }
+  #lore .lore-fragment { padding: 1rem 1.1rem; background: rgba(0,0,0,0.04); border-left: 2px solid var(--fog); }
+  #lore .lore-fragment p { font-size: 0.95rem; font-style: italic; }
+  #lore .lore-fragment cite { display: block; margin-top: 0.5rem; font-family: "Courier New", ui-monospace, monospace; font-style: normal; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7; }
+  #lore .lore-fragment.pinned { font-family: "Courier New", ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.04em; text-align: center; border-left: none; border: 1px dashed var(--wound); color: var(--wound); }
+  #lore .lore-scratches { position: absolute; inset: 0; pointer-events: none; opacity: 0.06; background-image: linear-gradient(105deg, transparent 46%, currentColor 47%, currentColor 48%, transparent 49%), linear-gradient(100deg, transparent 56%, currentColor 57%, currentColor 57.6%, transparent 58.6%), linear-gradient(110deg, transparent 66%, currentColor 66.7%, currentColor 67.4%, transparent 68.4%); }
+  #lore .lore-signoff { margin-top: 2.2rem; padding-top: 1.4rem; border-top: 1px solid var(--fog); font-size: 0.88rem; opacity: 0.85; }
+  #lore .lore-signoff .role { display: block; margin-top: 0.3rem; font-family: "Courier New", ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
+  #lore .lore-foot { text-align: center; padding: 3rem 1.5rem 4rem; font-family: "Courier New", ui-monospace, monospace; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fog); background: var(--dusk-2); }
+</style>
+<div class="lore-canvas">
+
+  <div class="lore-intro" style="background: var(--canvas);">
+    <div class="lore-intro-head">
+      <div class="lore-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-4 3-6 6-6 10a6 6 0 0 0 12 0c0-4-2-7-6-10Z"/><path d="M9.5 15.5a2.5 2.5 0 0 0 5 0"/></svg></div>
+      <h2>Le lore du Camping des Pins</h2>
+      <p>La brochure officielle du camping — et ce qu'elle ne dit pas tout à fait.</p>
+    </div>
+    <nav class="lore-toc" aria-label="Sommaire du lore">
+      <a href="#lore-accueil">Accueil</a>
+      <a href="#lore-histoire">Une histoire</a>
+      <a href="#lore-jour1">L'arrivée</a>
+      <a href="#lore-jour6">Une absence</a>
+      <a href="#lore-jour9">Ce qu'on a retrouvé</a>
+      <a href="#lore-rumeurs">Rumeurs</a>
+      <a href="#lore-sentier">Le sentier</a>
+      <a href="#lore-mot">Mot du directeur</a>
+    </nav>
+  </div>
+
+  <section id="lore-accueil" class="lore-sec" style="background: var(--canvas); color: var(--ink-l);">
+    <div class="lore-wrap">
+      <p class="lore-eyebrow">Brochure officielle — saison de réouverture</p>
+      <h2 class="lore-h" style="font-size:clamp(2.1rem, 6vw, 3.1rem);">Camping&nbsp;des&nbsp;Pins</h2>
+      <p class="lore-sub">Au large, entre pins centenaires et eaux calmes, un séjour dont vous vous souviendrez longtemps.</p>
+      <p class="lore-lede">Bienvenue au Camping des Pins. Posé sur l'Île des Pins, reliée au continent par un pont, entre crique abritée et forêt qui recouvre l'île presque tout entière, notre domaine rouvre cet été ses portes aux familles, aux amoureux du grand air et aux curieux en quête de tranquillité.</p>
+      <p>Ici, les journées se comptent en baignades, en parties de pêche et en soirées autour du feu. Les nuits, elles, appartiennent à l'île — et nous vous invitons à les lui laisser.</p>
+      <ul class="lore-amenities">
+        <li><b>Accès</b> Un pont relie l'île au continent, praticable en voiture toute l'année — remis en état par les équipes du camping avant la réouverture. Une navette bateau dessert aussi la crique en journée, pour le plaisir.</li>
+        <li><b>Crique</b> Location de barques, coin pêche équipé, canne et appâts en vente à l'accueil.</li>
+        <li><b>Toboggans</b> Deux glissades aquatiques aménagées, bouées fournies sur place.</li>
+        <li><b>Boutique</b> L'accueil tient l'essentiel : boissons, en-cas, vêtements de rechange.</li>
+        <li><b>Soirées</b> Buvette animée chaque samedi, DJ résident jusqu'à la nuit tombée.</li>
+        <li><b>Sécurité</b> Une équipe assure des rondes discrètes, jour et nuit, sur l'ensemble du domaine.</li>
+        <li><b>Pins</b> Sentiers balisés à travers la forêt. Nous recommandons de rester sur les chemins marqués après la tombée de la nuit — simple prudence, comme partout en pleine nature.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="lore-treeline" style="color: var(--pine); background: var(--canvas);"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+  <section id="lore-histoire" class="lore-sec" style="background: var(--canvas-2); color: var(--ink-l);">
+    <div class="lore-wrap">
+      <p class="lore-eyebrow">Un peu d'histoire</p>
+      <h2 class="lore-h">Une île, un nouveau départ</h2>
+      <p>L'Île des Pins n'apparaît sur aucune carte avant 1986. Cette année-là seulement, le continent découvre ce qu'il ignorait jusque-là : un bout de terre couvert de pins, à peine visible depuis la côte, où un camping tournait déjà — tenu par un homme dont presque personne n'avait jamais entendu parler.</p>
+      <p>Les saisons se sont enchaînées quelques années encore, dans une relative discrétion. Puis, un jour, ce premier propriétaire a disparu — sans un mot, sans laisser d'explication à qui que ce soit. Il a fallu attendre plusieurs années avant qu'on ne le retrouve, sur l'île même, dans des circonstances que personne n'a jamais réellement éclaircies. L'endroit est resté fermé depuis, peu à peu ravalé par les pins.</p>
+      <div class="lore-quote">
+        « Plus personne n'accostait sur cette île. Même les vieux du port en parlaient à voix basse, quand ils en parlaient. »
+        <cite>Un habitué du port, sur le continent</cite>
+      </div>
+      <p>C'est Philippe Rousselio, investisseur, qui a fini par racheter le domaine et décider de lui redonner vie. Lui-même n'a pourtant jamais remis les pieds sur l'île depuis l'achat — c'est son fils, Thomas Rousselio, qu'il a envoyé seul superviser la réouverture. Pourquoi ce choix ? Personne, à ce jour, n'a réussi à le lui faire dire.</p>
+    </div>
+  </section>
+
+  <div class="lore-treeline" style="color: var(--pine); background: var(--canvas-2);"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+  <section id="lore-jour1" class="lore-sec" style="background:#d4c69f; color: var(--ink-l);">
+    <div class="lore-wrap">
+      <h2 class="lore-h">L'arrivée</h2>
+      <p>Les premières tentes se montent avant midi. Les enfants courent déjà vers la crique pendant que leurs parents négocient l'emplacement le plus à l'ombre des pins. À la buvette, on ressert le café à ceux qui ont roulé toute la nuit pour passer le pont à temps.</p>
+      <div class="lore-quote">
+        « Je venais ici gamine, avec mes parents, avant que ça ferme. J'ai cru que jamais personne ne rouvrirait cet endroit. Ça fait drôle d'y remettre les pieds. »
+        <cite>Térésa, 41 ans — revient après des années</cite>
+      </div>
+      <p>Le soir venu, le premier feu de camp de la saison réunit une trentaine de campeurs. Thomas fait le tour des tentes, encore un peu tendu — c'est sa première vraie soirée en tant que directeur. On se raconte les news de l'année, on refait connaissance. Personne, ce soir-là, ne pense aux pins qui bordent le camp — sombres, immobiles, silencieux.</p>
+    </div>
+  </section>
+
+  <div class="lore-treeline" style="color: var(--pine); background:#d4c69f;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+  <section id="lore-jour6" class="lore-sec" style="background:#c9baa1; color: var(--ink-l);">
+    <div class="lore-wrap">
+      <h2 class="lore-h">Une absence</h2>
+      <p>Au petit matin, la famille du chalet 12 signale l'absence d'un des leurs. Le jeune homme était parti seul en début de soirée pour « marcher un peu du côté de la crique » et n'a pas reparu.</p>
+      <p>La direction se veut rassurante : il ne serait pas le premier campeur à repartir sans prévenir, agacé par une dispute de couple ou simplement lassé plus tôt que prévu. L'équipe de sécurité effectue tout de même une ronde élargie, jusqu'à la lisière des pins, sans rien trouver de particulier.</p>
+      <div class="lore-quote">
+        « On m'a dit de ne pas m'inquiéter, que ça arrivait tout le temps. Mais il avait laissé son sac, ses affaires, même son téléphone sur la table du chalet. »
+        <cite>Un proche du disparu, resté anonyme</cite>
+      </div>
+    </div>
+  </section>
+
+  <div class="lore-treeline" style="color: var(--pine-deep); background:#c9baa1;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+  <section id="lore-jour9" class="lore-sec" style="background:#8b8266; color:#241f14;">
+    <div class="lore-wrap">
+      <h2 class="lore-h">Ce qu'on a retrouvé</h2>
+      <p>Ce que la direction espérait ne jamais avoir à communiquer a fini par filtrer. Voici, tel que transmis à l'équipe de sécurité, l'essentiel du rapport interne rédigé après la découverte à la pointe nord de l'île.</p>
+      <div class="lore-report">
+        <span class="stamp">Diffusion restreinte</span>
+        <dl>
+          <dt>Origine</dt><dd>Sécurité du camping</dd>
+          <dt>Lieu</dt><dd>Pointe nord de l'île, dans les pins, à 40 m du dernier sentier balisé</dd>
+          <dt>Découvert par</dt><dd><span class="redacted">████████</span>, agent de sécurité</dd>
+          <dt>Transmis à</dt><dd>Gendarmerie — sans suite publique à ce jour</dd>
+        </dl>
+        <p>Corps retrouvé partiellement dissimulé sous des branchages, dans un état de délabrement qu'aucun animal recensé dans la région ne peut raisonnablement expliquer. Plaies profondes, arrachements musculaires nets, aucune trace de morsure compatible avec un sanglier, un chien errant ou tout autre prédateur connu du secteur.</p>
+        <p>L'aide-soignant appelé sur place a refusé de signer le constat initial, déclarant « n'avoir jamais rien vu de tel ». Sur ordre de la direction, les vacanciers n'en ont jamais rien su, histoire de « ne pas alimenter la panique ». Le camping reste ouvert.</p>
+      </div>
+    </div>
+    <div class="lore-scratches" style="color:#241f14;"></div>
+  </section>
+
+  <div class="lore-treeline" style="color:#3a3226; background:#8b8266;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+  <section id="lore-rumeurs" class="lore-sec" style="background:#4a4436; color:#efe6cf;">
+    <div class="lore-wrap">
+      <p class="lore-eyebrow" style="color:#efe6cf;">Autour du feu de camp</p>
+      <h2 class="lore-h" style="color:#efe6cf;">Ce qu'on raconte</h2>
+      <p>Rien n'est officiel. Mais entre deux bûches, les langues se délient.</p>
+      <div class="lore-fragments">
+        <div class="lore-fragment">
+          <p>« Mon grand-père parlait déjà de bruits dans ces pins, certains soirs. On riait bien de lui, à l'époque. »</p>
+          <cite>Un pêcheur, habitué de l'île depuis vingt ans</cite>
+        </div>
+        <div class="lore-fragment">
+          <p>« On raconte que le père de Thomas connaissait déjà cette île, avant. Qu'il y aurait même mis les pieds, une fois, il y a longtemps. Depuis, plus jamais. Allez savoir pourquoi il a préféré envoyer son fils plutôt que d'y retourner lui-même. »</p>
+          <cite>Un ancien du village, sur le continent</cite>
+        </div>
+        <div class="lore-fragment">
+          <p>« J'ai relevé des traces, cette semaine-là. Pas des traces qu'on a l'habitude de voir par ici. Elles s'arrêtaient net, à une dizaine de mètres du sentier, sans aucune explication. »</p>
+          <cite>Un agent de sécurité, off the record</cite>
+        </div>
+        <div class="lore-fragment">
+          <p>« On a entendu un truc hurler, cette nuit-là. Mon père dit que c'est un cerf qui brame. Un cerf, ça braille pas comme ça. »</p>
+          <cite>Un adolescent du chalet 7</cite>
+        </div>
+        <div class="lore-fragment">
+          <p>« La direction nous a demandé de verrouiller systématiquement les poubelles le soir, même celles de l'intérieur. Consigne bizarre, mais bon, c'est pas à moi de discuter. »</p>
+          <cite>Une employée de la boutique</cite>
+        </div>
+        <div class="lore-fragment">
+          <p>« Un campeur a lâché le mot "loup-garou" autour du feu, un soir, pour rigoler. Le lendemain, un vigile est venu lui rappeler très calmement que ce genre de blague ne faisait rire personne à la direction. Il n'a plus jamais reparlé de ça devant du monde. »</p>
+          <cite>Un habitué des soirées buvette</cite>
+        </div>
+        <div class="lore-fragment pinned">
+          Ne sortez pas seuls la nuit.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lore-treeline" style="color:#231f18; background:#4a4436;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+  <section id="lore-sentier" class="lore-sec" style="background: var(--dusk); color:#dbe0e4;">
+    <div class="lore-wrap">
+      <h2 class="lore-h" style="color:#dbe0e4;">Le sentier interdit</h2>
+      <p>Un petit groupe de randonneurs, mené par un campeur du nom de Manu, s'écarte un instant du sentier balisé pour couper au plus court à travers les pins vers la crique. Ils tombent sur une formation rocheuse qu'aucune carte du camping ne mentionne : un renfoncement dans la roche, à moitié dissimulé par la végétation, comme repoussé de l'intérieur plutôt qu'effondré naturellement.</p>
+      <p>De longues entailles marquent la pierre à l'entrée — trop régulières pour l'érosion, trop profondes pour un outil. Avant que quiconque n'ait pu s'aventurer plus loin, l'équipe de sécurité boucle le secteur dans l'heure. Raison officielle : « risque d'éboulement ». Un grillage et un cadenas condamnent désormais l'accès. Un garde y est posté en permanence depuis.</p>
+      <div class="lore-quote">
+        « On n'a rien vu de spécial, franchement. Juste un trou dans la roche. Mais ils sont venus vite. Beaucoup trop vite pour un simple risque d'éboulement. »
+        <cite>Manu, campeur</cite>
+      </div>
+    </div>
+  </section>
+
+  <section id="lore-mot" class="lore-sec" style="background: var(--dusk-2); color:#c7ccd1;">
+    <div class="lore-wrap">
+      <p class="lore-eyebrow" style="color:#c7ccd1;">Mot du directeur</p>
+      <h2 class="lore-h" style="color:#c7ccd1;">Le séjour continue</h2>
+      <p>Le Camping des Pins reste ouvert. Les activités se poursuivent comme prévu : baignades à la crique, pêche, soirées à la buvette. Ce n'est pas quelques rumeurs de coin de feu qui vont remettre en cause ce que nous avons mis des mois à rouvrir.</p>
+      <p>Nous avons simplement renforcé les rondes de nuit et avancé le couvre-feu recommandé à 23h aux abords des pins. Ce ne sont là que des précautions ordinaires, pour une île qui reste, avant tout, sauvage.</p>
+      <p>Si, une nuit, vous entendez quelque chose bouger entre les arbres — un souffle, un pas trop lourd, un hurlement qui ne ressemble à rien de connu — la meilleure chose à faire est probablement de rentrer sous la tente et de ne pas vérifier.</p>
+      <p>Mon père n'a jamais voulu remettre les pieds sur cette île. Il ne m'a jamais dit pourquoi non plus. Je préfère, pour l'instant, avancer plutôt que chercher des réponses qu'il a toujours refusé de me donner.</p>
+      <p>Certaines réponses, ici, valent peut-être moins cher que le doute.</p>
+      <div class="lore-signoff">
+        Bon séjour à tous.
+        <span class="role">— Thomas Rousselio, Directeur — Camping des Pins</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="lore-foot">Livret remis à l'accueil · Camping des Pins</div>
+</div>
+</section>
+
 
 <footer>
   <span class="foot-brand">Camping RP — Île des Pins</span>
